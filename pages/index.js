@@ -1,9 +1,30 @@
 import Layout from '@/components/Layout';
 import Grid from '@/components/Grid';
 
-import homes from 'data.json';
+// the data comes through a JSON file from within our project, ./data.json
+// import homes from 'data.json';
 
-export default function Home() {
+// Import the generated Prisma client
+import { PrismaClient } from '@prisma/client'
+
+// Instantiate it
+const prisma = new PrismaClient()
+
+export async function getServerSideProps() {
+  // Get all homes
+  // https://www.prisma.io/docs/concepts/components/prisma-client/crud
+  const homes = await prisma.home.findMany();
+  
+  // Pass the data to the Home page
+  return {
+    props: {
+      homes: JSON.parse(JSON.stringify(homes)),
+    }
+  };
+}
+
+// This data is then passed down from the Home component to the Grid component as a prop.
+export default function Home({ homes = [] }) {
   return (
     <Layout>
       <h1 className="text-xl font-medium text-gray-800">

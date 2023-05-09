@@ -1,21 +1,22 @@
 import Layout from '@/components/Layout';
 import Grid from '@/components/Grid';
 
-// the data comes through a JSON file from within our project, ./data.json
-// import homes from 'data.json';
-
-// Import the generated Prisma client
+/// 4.1 Fetch data from Supabase using Prisma
+/// 4.1 Import the generated Prisma client
 import { PrismaClient } from '@prisma/client'
 
-// Instantiate it
+/// 4.1 Instantiate it
 const prisma = new PrismaClient()
 
+/// 4.1 Query data in Next.js with Server-Side Rendering (SSR)
+/// 4.1 the data comes through a JSON file from within our project, ./data.json
+/// 4.1 import homes from 'data.json';
 export async function getServerSideProps() {
-  // Get all homes
-  // https://www.prisma.io/docs/concepts/components/prisma-client/crud
+  /// 4.1 Get all homes
+  /// 4.1 https://www.prisma.io/docs/concepts/components/prisma-client/crud
   const homes = await prisma.home.findMany();
   
-  // Pass the data to the Home page
+  /// 4.1 Pass the data to the Home page
   return {
     props: {
       homes: JSON.parse(JSON.stringify(homes)),
@@ -23,7 +24,7 @@ export async function getServerSideProps() {
   };
 }
 
-// This data is then passed down from the Home component to the Grid component as a prop.
+/// 4.1 This data is then passed down from the Home component to the Grid component as a prop.
 export default function Home({ homes = [] }) {
   return (
     <Layout>

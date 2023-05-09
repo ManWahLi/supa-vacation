@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Card from '@/components/Card';
 import { ExclamationIcon } from '@heroicons/react/outline';
 
-// The Grid component is then responsible for rendering the data into the screen as a grid of Card.
+// 4.1 The Grid component is then responsible for rendering the data into the screen as a grid of Card.
 
 const Grid = ({ homes = [] }) => {
   const isEmpty = homes.length === 0;

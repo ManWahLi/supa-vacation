@@ -24,7 +24,7 @@ export async function getServerSideProps() {
   };
 }
 
-/// 4.1 This data is then passed down from the Home component to the Grid component as a prop.
+/// 4.1 The data is then passed down from the Home component to the Grid component as a prop.
 export default function Home({ homes = [] }) {
   return (
     <Layout>

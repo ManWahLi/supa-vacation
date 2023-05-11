@@ -1,3 +1,6 @@
+/// 4.3 Next.js also provides a Link component from the next/link module, 
+/// 4.3 which you can use to create links between pages in your application. 
+/// 4.3 The Link component preloads the page data in the background, so that when the user clicks on the link, the page loads faster.
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
